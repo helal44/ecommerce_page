@@ -1,0 +1,24 @@
+
+
+
+<div class="card mx-1 my-2">
+    <img src="{{card.img}}" alt="img" class="card-image cap " >
+    <div class="card-body">
+      <h5 class="card-title text-center">{{card.name | uppercase}} </h5>
+      <h6 class="card-title text-center">{{card.price }}</h6>
+      <h6 class="text-center" [ngStyle]="{'color':card.number>0? 'green':'red'}">
+          <!-- <p *ngIf="card.number>0 ; else no">{{'insocket'|uppercase}}</p>
+          <ng-template #no>
+               <p>{{'outsocket'|lowercase}}</p>
+          </ng-template> -->
+
+          <p>{{card.number |rate}}</p>
+
+      </h6>
+   
+      <p class="card-text text-center"> {{card.desc |lowercase}} </p>
+
+      <a href="detail" class="btn btn-primary ">Go </a>
+    </div>
+    
+  </div>
