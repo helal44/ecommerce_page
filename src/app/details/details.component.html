@@ -1,1 +1,45 @@
-<p>details works!</p>
+<div class="container mt-5">
+
+  <div class="row mt-5 ">
+    <div class="col mt-5 light ">
+        
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img [src]="item.thumbnail" class="d-block " alt="Wild Landscape"/>
+          </div>
+          <div class="carousel-item" *ngFor="let img of item.images">
+            <img [src]="img" class="d-block " alt="Camera"  >
+          </div>
+         
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col  mt-5">
+         <h2>Name : {{item.title |uppercase}}</h2>
+         <h2> Brand : {{item.brand |uppercase}}</h2>
+         <h2> Category : {{item.category |uppercase}}</h2>
+         <h2> Price : {{item.price}}$</h2>
+         <h2> Discount : {{item.discountPercentage}}$ </h2>
+         <h3> Rating : {{item.rating}}/5 R</h3>
+         <h5>Created At : {{item.createdAt |date:'medium'}}</h5>
+         <h6  [ngStyle]="{'color':item.stock>0? 'green':'red'}">
+            <p> State : {{item.stock |rate}}</p>
+        </h6>
+         <h5> {{item.desc|lowercase}}</h5>
+
+         <button href="" class="btn btn-primary" (click)="addtochart()">Addtochart</button>
+
+    </div>
+    
+</div>
+
+</div>

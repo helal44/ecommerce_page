@@ -1,1 +1,103 @@
-<p>register works!</p>
+<div class="row mt-5">
+
+     <form  class=" form-group my-4 shadow-lg p-4 mt-5 " [formGroup]="regform" (ngSubmit)="submitform()">
+                <h2 class="text-center ">Register Account</h2>
+        <div class="elm my-3">
+            <label class="form-text">Enter Your Name</label>
+            <input type="text" class=" form-control" formControlName="name">
+            <span class=" form-text text-danger" *ngIf="regform.controls['name'].touched && regform.controls['name'].invalid">
+                    <span *ngIf="regform.controls['name'].errors?.['required']">
+                        this filed is required between 8 to 18 digit
+                    </span>
+            </span>
+
+        </div>
+        <div class="elm my-3" >
+            <label class="form-text">Enter Your Email</label>
+            <input type="email" class=" form-control" formControlName="email">
+            <span class=" form-text text-danger" *ngIf="regform.controls['email'].touched && regform.controls['email'].invalid">
+                <span *ngIf="regform.controls['email'].errors?.['required']">
+                        this filed is required
+                </span>
+                <span *ngIf="regform.controls['email'].errors?.['pattern']">
+                    rong format use this format (Helal abd alla@gmail.com)
+            </span>
+        </span>
+
+        </div>
+        <div class="elm my-3">
+            <label class="form-text">Enter Your User Name</label>
+            <input type="text" class=" form-control"formControlName="username">
+            <span class=" form-text text-danger" *ngIf="regform.controls['username'].touched && regform.controls['username'].invalid">
+                <span *ngIf="regform.controls['username'].errors?.['required']">
+                    this filed is required 
+                </span>
+                <span *ngIf="regform.controls['username'].errors?.['pattern']">
+                    don't use any spaces spaces
+                </span>
+        </span>
+
+
+        </div>
+        <div class="elm my-3">
+            <label class="form-text">Enter Your Password</label>
+            <input type="password" class=" form-control" formControlName="password">
+
+            <span class=" form-text text-danger" *ngIf="regform.controls['password'].touched && regform.controls['password'].invalid">
+                <span *ngIf="regform.controls['password'].errors?.['required']">
+                    this filed is required between 8 to 15 digit
+                </span>
+                <span *ngIf="regform.controls['password'].errors?.['pattern']">
+                    rong format use this format (P@sss33)
+                </span>
+        </span>
+        </div>
+        <div class="elm my-3">
+            <label class="form-text">Confirm Password</label>
+            <input type="password" class=" form-control" formControlName="password2">
+            
+            <span class=" form-text text-danger" *ngIf="regform.controls['password2'].touched && regform.controls['password2'].invalid">
+                <span *ngIf="regform.controls['password2'].errors?.['required']">
+                    this filed is required between 8 to 15 digit
+                </span>
+                <span *ngIf="regform.controls['password2'].value != regform.controls['password'].value 
+                           && regform.controls['password2'].value !='' ">
+                   this password isnot the same as above 
+                </span>
+          </span>
+          <span class=" form-text text-danger" *ngIf="regform.controls['password2'].touched ">
+
+            <span *ngIf="regform.controls['password2'].value != regform.controls['password'].value 
+                       && regform.controls['password2'].value !='' ">
+               this password isnot the same as above 
+            </span>
+      </span>
+
+        </div>
+
+        <div [formGroup]="orderForm" class="form-control">  
+            <h5 class=" form-text">Add Adrress</h5>
+            <div formArrayName="items"  
+              *ngFor="let item of getControls(); let i = index;" >  
+              <div [formGroupName]="i" class="d-flex">  
+                <input formControlName="name" placeholder="street" class=" w-50 m-4 form-control">  
+                <input formControlName="description" placeholder="country" class=" w-50 m-4 form-control">  
+                <input formControlName="price" placeholder="city" class=" w-50 m-4 form-control">  
+                <button (click)="deleteitem(i)"  class="btn btn-primary my-4">delete</button> 
+              </div>  
+            </div> 
+            <button (click)="addItem()"  class="btn btn-primary my-4">Add</button>  
+            </div> 
+           
+       
+       
+        <div class="elm my-3">
+           
+            <input type="submit" class=" btn btn-primary" value="Submit" [disabled]="regform.invalid">
+
+        </div>
+      
+
+     </form>
+
+</div>

@@ -1,8 +1,15 @@
 export interface Product {
     id:number,
-    name:string,
+    title:string,
     price:number,
-    desc:string,
-    number:number,
-    img?:string
+    descdescription:string,
+    discountPercentage?:number,
+    rating?:number,
+    stock:number,
+    brand:string,
+    category:string,
+    thumbnail:string,
+    images:string[],
+    createdAt?:string,
+    cart?:boolean
 }

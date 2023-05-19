@@ -5,12 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ProductComponent } from './product/product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { RatePipe } from './pipes/rate.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DetailsComponent } from './details/details.component';
+import { CarsoulComponent } from './carsoul/carsoul.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CartComponent } from './cart/cart.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,12 +26,17 @@ import { DetailsComponent } from './details/details.component';
     RatePipe,
     LoginComponent,
     RegisterComponent,
-    DetailsComponent
+    DetailsComponent,
+    CarsoulComponent,
+    CartComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CarouselModule,
+     ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class=" row mt-5">
+
+    <form class="form shadow-lg p-4 mt-5" #login="ngForm" (ngSubmit)="submitlogin(login)">
+        <h1 class=" text-center">Login</h1>
+        <div class="form-group my-3">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="name"  placeholder="Enter email" name="email" ngModel #email="ngModel"   pattern="^[A-Z]+.{8,20}(\@gmail\.com)$" required>
+             <span class="text-danger" *ngIf="email.touched && email.invalid">
+
+                <span *ngIf="email?.errors?.['required']">
+                        Email Required
+                </span>
+                <span *ngIf="email?.errors?.['pattern']">
+                    Email Format should be like [A-Z]*****@gmail.com 
+            </span>
+             </span>
+        </div>
+        <div class="form-group my-3 ">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control"  placeholder="Password" name="pass" ngModel #pass="ngModel" required minlength="6" >
+            <span class=" text-danger" *ngIf="pass.touched && pass.invalid ">
+                    <span *ngIf="pass?.errors?.['required']">
+
+                        this filed is required
+                    </span>
+                    <span *ngIf="pass?.errors?.['minlength']">
+
+                        minlength for password is 6 degits
+                    </span>
+                   
+            </span>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="login.invalid">Submit</button>
+        <a  class="nav-link text-center text-primary"  href="register" >Register Account</a>
+        
+      </form>
+
+</div>

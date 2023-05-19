@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mb-4">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="" >Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,11 +13,16 @@
         </ul>
         <form class="d-flex">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+
+              <li class="nav-item mx-2">
+                <a class="nav-link " routerLink="cart" routerLinkActive=" mactive ">Cart <span class=" counter" *ngIf="counter>0">{{counter}}</span></a>
+              </li>
+
+                <li class="nav-item mx-2">
                   <a class="nav-link " routerLink="login" routerLinkActive=" mactive ">Login</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link " routerLink="register" routerLinkActive=" mactive ">Register</a>
                   </li>
               

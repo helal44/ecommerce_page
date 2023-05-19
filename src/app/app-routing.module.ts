@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DetailsComponent } from './details/details.component';
 import { ProductComponent } from './product/product.component';
+import { routesguardGuard } from './auth/routesguard.guard';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -19,12 +21,17 @@ const routes: Routes = [
     component:RegisterComponent
   },
   {
-    path:'detail',
+    path:'detail/:id',
     component:DetailsComponent
   },
   {
+    path:'cart',
+    component:CartComponent
+  },
+  {
     path:'**',
-    component:ProductComponent
+    component:ProductComponent,
+    canActivate:[routesguardGuard]
   }
 
 ];
